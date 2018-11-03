@@ -1,4 +1,5 @@
 #include <iostream>
+#include "../helper.h"
 using namespace std;
 
 void merge(int arr[], int l, int m, int r)
@@ -22,6 +23,7 @@ void merge(int arr[], int l, int m, int r)
      while(j<n2) arr[k++]=R[j++];
 }
 
+
 void mergeSort(int arr[], int l, int r)
 {
     if (l < r)
@@ -34,22 +36,14 @@ void mergeSort(int arr[], int l, int r)
     }
 }
 
-void print(int arr[], int n)
-{
-    cout << "Array: ";
-    for (int i = 0; i < n; i++)
-        cout << arr[i] << " ";
-    cout << endl;
-}
-
 int main()
 {
     int arr[] = {12, 11, 13, 5, 6, 7};
     int n = sizeof(arr) / sizeof(arr[0]);
 
-    print(arr, n);
+    printArray(arr, n);
     cout << "Sorting..." << endl;
     mergeSort(arr, 0, n - 1);
-    print(arr, n);
+    printArray(arr, n);
     return 0;
 }
