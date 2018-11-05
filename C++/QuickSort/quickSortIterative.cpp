@@ -23,13 +23,30 @@ int partition(int arr[], int l, int r)
 }
 
 // sorts array from index l to r (both inclusive)
-void quickSort(int arr[], int l, int r)
+void quickSortIterative(int arr[], int l, int r)
 {
-    if (l < r)
+    int *stack = new int[r - l + 1];
+    int top = -1;
+
+    stack[++top] = l;
+    stack[++top] = r;
+    while (top >= 0)
     {
+        r = stack[top--];
+        l = stack[top--];
+
         int i = partition(arr, l, r);
-        quickSort(arr, l, i - 1);
-        quickSort(arr, i + 1, r);
+
+        if (i - 1 > l)
+        {
+            stack[++top] = l;
+            stack[++top] = i - 1;
+        }
+        if (i + 1 < r)
+        {
+            stack[++top] = i + 1;
+            stack[++top] = r;
+        }
     }
 }
 
@@ -41,7 +58,7 @@ int main()
     // printArray from helper
     printArray(arr, n);
     cout << "Sorting..." << endl;
-    quickSort(arr, 0, n - 1);
+    quickSortIterative(arr, 0, n - 1);
     printArray(arr, n);
 
     return 0;
