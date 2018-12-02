@@ -15,4 +15,5 @@ namespace LinkedListUtils
     };
     void printList(Node*);
     Node *getTail(Node*);
+    void insertAtHead(Node**,int);
 }

@@ -35,4 +35,10 @@ namespace LinkedListUtils{
             curr = curr->next;
         return curr;
     }
+    void insertAtHead(Node **head, int val){
+        Node *newNode = new Node;
+        newNode->next = *head;
+        newNode->val = val;
+        (*head) = newNode;
+    }
 }
