@@ -1,12 +1,8 @@
 #include <iostream>
+#include "../helper/helper.h"
 using namespace std;
-
-class Node
-{
-  public:
-    int val;
-    Node *next;
-};
+using LinkedListUtils::Node;
+using LinkedListUtils::printList;
 
 void split(Node *head, Node **a, Node **b)
 {
@@ -70,18 +66,6 @@ void insertAtHead(Node **head, int val)
     newNode->val = val;
     newNode->next = *head;
     *head = newNode;
-}
-
-void printList(Node *head)
-{
-    cout << "Linked List: " << endl;
-    Node *temp = head;
-    while (temp != NULL)
-    {
-        cout << temp->val << " ";
-        temp = temp->next;
-    }
-    cout << endl;
 }
 
 int main()

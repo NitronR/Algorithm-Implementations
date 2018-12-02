@@ -1,6 +1,7 @@
 #include <iostream>
 #include "../helper/helper.h"
 using namespace std;
+using ArrayUtils::printArray;
 
 // partitions array by first element
 // returns position after placement

@@ -1,6 +1,7 @@
 #include <iostream>
 #include "../helper/helper.h"
 using namespace std;
+using ArrayUtils::printArray;
 
 void merge(int arr[], int l, int m, int r)
 {
