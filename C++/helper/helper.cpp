@@ -42,3 +42,23 @@ namespace LinkedListUtils{
         (*head) = newNode;
     }
 }
+
+// 2D Geometry Utilities
+namespace Geom2DUtils
+{
+    class Point{
+        public:
+        float x,y;
+        
+        Point() { x = y = 0; };
+        Point(float x, float y)
+        {
+            this->x = x;
+            this->y = y;
+        }
+    };
+    float dist(Point p1, Point p2)
+    {
+        return sqrt(pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2));
+    }
+}
