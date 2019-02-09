@@ -32,3 +32,29 @@ public:
 
 float dist(Point, Point);
 } // namespace Geom2DUtils
+
+namespace GraphUtils
+{
+class Edge
+{
+public:
+  int src, dest, weight;
+};
+
+bool compEdge(Edge e1, Edge e2);
+
+class Graph
+{
+public:
+  int V, numEdges;
+  Edge *edges;
+  Graph(int v, int n)
+  {
+    edges = new Edge[n];
+    V = v;
+    numEdges = n;
+  }
+
+  void sortEdges();
+};
+} // namespace GraphUtils

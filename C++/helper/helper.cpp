@@ -1,5 +1,6 @@
 #include <iostream>
 #include <math.h>
+#include <algorithm>
 using namespace std;
 
 // Array Utilities
@@ -69,3 +70,36 @@ float dist(Point p1, Point p2)
     return sqrt(pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2));
 }
 } // namespace Geom2DUtils
+
+namespace GraphUtils
+{
+
+class Edge
+{
+  public:
+    int src, dest, weight;
+};
+
+bool compEdge(Edge e1, Edge e2)
+{
+    return e1.weight < e2.weight;
+}
+
+class Graph
+{
+  public:
+    int V, numEdges;
+    Edge *edges;
+    Graph(int v, int n)
+    {
+        edges = new Edge[n];
+        V = v;
+        numEdges = n;
+    }
+    void sortEdges();
+};
+void Graph::sortEdges()
+{
+    std::sort(edges, edges + numEdges, compEdge);
+}
+} // namespace GraphUtils

@@ -1,40 +1,13 @@
 #include <iostream>
 #include <algorithm>
+#include "../helper/helper.h"
 using namespace std;
-
-class Edge
-{
-public:
-  int src, dest, weight;
-};
+using namespace GraphUtils;
 
 class Subset
 {
 public:
   int parent, rank;
-};
-
-bool compEdge(Edge e1, Edge e2)
-{
-  return e1.weight < e2.weight;
-}
-
-class Graph
-{
-public:
-  int V, numEdges;
-  Edge *edges;
-  Graph(int v, int n)
-  {
-    edges = new Edge[n];
-    V = v;
-    numEdges = n;
-  }
-
-  void sortEdges()
-  {
-    sort(edges, edges + numEdges, compEdge);
-  }
 };
 
 int find(Subset subsets[], int x)
